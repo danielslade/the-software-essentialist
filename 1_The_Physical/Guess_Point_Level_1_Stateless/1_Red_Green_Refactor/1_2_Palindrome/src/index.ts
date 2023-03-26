@@ -1,1 +1,3 @@
-export function isAPalindrome() {}
+export function isAPalindrome(str: string) {
+  return false;
+}
