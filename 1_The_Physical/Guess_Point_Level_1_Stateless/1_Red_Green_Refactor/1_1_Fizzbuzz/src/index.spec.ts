@@ -18,9 +18,16 @@ describe("fizzbuzz", () => {
   });
 
   it.each([3, 6, 9])(
-    "should return 'Fizz' for multiples of 3 such as %i",
+    "should return 'Fizz' for multiples of three such as %i",
     (number: number) => {
       expect(fizzbuzz(number)).toEqual("Fizz");
+    }
+  );
+
+  it.each([5, 10, 20])(
+    "should return 'Buzz' for multiples of five such as %i",
+    (number: number) => {
+      expect(fizzbuzz(number)).toEqual("Buzz");
     }
   );
 });
