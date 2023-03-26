@@ -15,4 +15,8 @@ describe("palindrome checker", () => {
       expect(isAPalindrome(str)).toBeTruthy();
     }
   );
+
+  it("should identify that 'bill' is not a plaindrome", () => {
+    expect(isAPalindrome("bill")).toBeFalsy();
+  });
 });
