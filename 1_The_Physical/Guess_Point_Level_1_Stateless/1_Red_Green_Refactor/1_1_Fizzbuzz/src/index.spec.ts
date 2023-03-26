@@ -37,4 +37,15 @@ describe("fizzbuzz", () => {
       expect(fizzbuzz(number)).toEqual("FizzBuzz");
     }
   );
+
+  it.each([
+    [1, "1"],
+    [2, "2"],
+    [4, "4"],
+  ])(
+    "should return the number as a string for non fizz, buzz, or fizzbuzz numbers such as %i",
+    (...[number, result]) => {
+      expect(fizzbuzz(number)).toEqual(result);
+    }
+  );
 });
