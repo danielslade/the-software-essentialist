@@ -9,7 +9,11 @@ describe("fizzbuzz", () => {
     expect(typeof fizzbuzz(4)).toBe("string");
   });
 
-  it("should not expect numbers less than 1", () => {
+  it("should not accept numbers less than 1", () => {
     expect(() => fizzbuzz(0)).toThrow("Too small");
+  });
+
+  it("should not accept numbers greater than 100", () => {
+    expect(() => fizzbuzz(101)).toThrow("Too large");
   });
 });
