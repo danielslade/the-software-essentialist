@@ -1,7 +1,13 @@
+const reverseString = (str: string): string => {
+  return str.split("").reverse().join("");
+};
+
+const removeSpaces = (str: string): string => {
+  return str.replace(/\s/g, "");
+};
+
 export function isAPalindrome(str: string) {
-  const reversed = str.split("").reverse().join("");
-  return (
-    str.replace(/\s/g, "").toLowerCase() ===
-    reversed.replace(/\s/g, "").toLowerCase()
-  );
+  const check = removeSpaces(str).toLowerCase();
+  const reversed = reverseString(check);
+  return check === reversed;
 }
