@@ -30,4 +30,11 @@ describe("fizzbuzz", () => {
       expect(fizzbuzz(number)).toEqual("Buzz");
     }
   );
+
+  it.each([15, 30, 45])(
+    "should return 'FizzBuzz' for multiples of three and five such as %i",
+    (number: number) => {
+      expect(fizzbuzz(number)).toEqual("FizzBuzz");
+    }
+  );
 });
