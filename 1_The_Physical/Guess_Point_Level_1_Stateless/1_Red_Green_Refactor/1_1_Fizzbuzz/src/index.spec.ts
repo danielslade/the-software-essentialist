@@ -16,4 +16,11 @@ describe("fizzbuzz", () => {
   it("should not accept numbers greater than 100", () => {
     expect(() => fizzbuzz(101)).toThrow("Too large");
   });
+
+  it.each([3, 6, 9])(
+    "should return 'Fizz' for multiples of 3 such as %i",
+    (number: number) => {
+      expect(fizzbuzz(number)).toEqual("Fizz");
+    }
+  );
 });
