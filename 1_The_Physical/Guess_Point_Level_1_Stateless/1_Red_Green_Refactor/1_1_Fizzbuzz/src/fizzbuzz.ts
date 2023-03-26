@@ -1,3 +1,8 @@
+const isMultiple = (denominator: number) => (numerator: number) =>
+  numerator % denominator === 0;
+const isMultipleOf3 = isMultiple(3);
+const isMultipleOf5 = isMultiple(5);
+
 export function fizzbuzz(number: number): string {
   if (number < 1) {
     throw new Error("Too small");
@@ -6,13 +11,13 @@ export function fizzbuzz(number: number): string {
     throw new Error("Too large");
   }
 
-  if (number % 3 === 0 && number % 5 === 0) {
+  if (isMultipleOf3(number) && isMultipleOf5(number)) {
     return "FizzBuzz";
   }
-  if (number % 3 === 0) {
+  if (isMultipleOf3(number)) {
     return "Fizz";
   }
-  if (number % 5 === 0) {
+  if (isMultipleOf5(number)) {
     return "Buzz";
   }
 
