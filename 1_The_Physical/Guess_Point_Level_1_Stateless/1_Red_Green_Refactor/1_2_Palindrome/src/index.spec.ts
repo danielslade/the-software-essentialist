@@ -1,4 +1,7 @@
+import { isAPalindrome } from "./";
 
-describe('palindrome checker', () => {
-
-})
+describe("palindrome checker", () => {
+  it("should exist", () => {
+    expect(isAPalindrome).toBeDefined();
+  });
+});
