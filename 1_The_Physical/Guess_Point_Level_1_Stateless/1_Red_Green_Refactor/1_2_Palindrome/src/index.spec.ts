@@ -23,4 +23,11 @@ describe("palindrome checker", () => {
   it("should still be able to identify a palindrome like 'Mom' even if the casing is off", () => {
     expect(isAPalindrome("Mom")).toBeTruthy();
   });
+
+  it.each(["Was It A Rat I Saw", "Never Odd or Even"])(
+    "should be able to identify that a phrase like '%s' is a palindrome",
+    (str: string) => {
+      expect(isAPalindrome(str)).toBeTruthy();
+    }
+  );
 });
