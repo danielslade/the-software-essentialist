@@ -19,4 +19,8 @@ describe("palindrome checker", () => {
   it("should identify that 'bill' is not a plaindrome", () => {
     expect(isAPalindrome("bill")).toBeFalsy();
   });
+
+  it("should still be able to identify a palindrome like 'Mom' even if the casing is off", () => {
+    expect(isAPalindrome("Mom")).toBeTruthy();
+  });
 });
