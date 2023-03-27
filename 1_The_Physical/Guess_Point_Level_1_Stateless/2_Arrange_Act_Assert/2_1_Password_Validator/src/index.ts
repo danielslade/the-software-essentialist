@@ -6,21 +6,17 @@ export type PasswordValidationResult = {
 };
 
 export function validatePassword(password: string): PasswordValidationResult {
+  const result: PasswordValidationResult = { valid: true, errors: [] };
+
   if (password.length < 5) {
-    return {
-      valid: false,
-      errors: ["PasswordTooShort"],
-    };
-  }
-  if (password.length > 15) {
-    return {
-      valid: false,
-      errors: ["PasswordTooLong"],
-    };
+    result.errors.push("PasswordTooShort");
+  } else if (password.length > 15) {
+    result.errors.push("PasswordTooLong");
   }
 
-  return {
-    valid: true,
-    errors: [],
-  };
+  if (result.errors.length > 0) {
+    result.valid = false;
+  }
+
+  return result;
 }
