@@ -21,4 +21,12 @@ describe("password validator", () => {
     expect(result.valid).toBeFalsy();
     expect(result.errors).toContain("DigitMissing");
   });
+
+  it("should return 'missing digit' and 'password too short' errors for passwords like 'four' that are less than 5 characters and do not contain a digit", () => {
+    const passwordToCheck = "four";
+    const result = validatePassword(passwordToCheck);
+    expect(result.valid).toBeFalsy();
+    expect(result.errors).toContain("DigitMissing");
+    expect(result.errors).toContain("PasswordTooShort");
+  });
 });
