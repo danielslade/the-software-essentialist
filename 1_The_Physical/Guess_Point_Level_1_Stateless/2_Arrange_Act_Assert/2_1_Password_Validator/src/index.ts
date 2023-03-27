@@ -1,4 +1,7 @@
-type PasswordValidationError = "PasswordTooShort" | "PasswordTooLong";
+type PasswordValidationError =
+  | "PasswordTooShort"
+  | "PasswordTooLong"
+  | "DigitMissing";
 
 export type PasswordValidationResult = {
   valid: boolean;
@@ -14,9 +17,18 @@ export function validatePassword(password: string): PasswordValidationResult {
     result.errors.push("PasswordTooLong");
   }
 
+  if (!containsDigit(password)) {
+    result.errors.push("DigitMissing");
+  }
+
   if (result.errors.length > 0) {
     result.valid = false;
   }
 
   return result;
+}
+
+function containsDigit(str: string): boolean {
+  const digitRegex = /\d/;
+  return digitRegex.test(str);
 }

@@ -14,4 +14,11 @@ describe("password validator", () => {
     expect(result.valid).toBeFalsy();
     expect(result.errors).toContain("PasswordTooLong");
   });
+
+  it("should return a 'missing digit' error for a password like 'classic' that does not contain a digit", () => {
+    const passwordToCheck = "classic";
+    const result = validatePassword(passwordToCheck);
+    expect(result.valid).toBeFalsy();
+    expect(result.errors).toContain("DigitMissing");
+  });
 });
