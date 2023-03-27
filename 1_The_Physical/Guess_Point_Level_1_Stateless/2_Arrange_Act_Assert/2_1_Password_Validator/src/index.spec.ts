@@ -71,4 +71,11 @@ describe("password validator", () => {
     expect(result.errors).toContain("DigitMissing");
     expect(result.errors).toContain("UppercaseMissing");
   });
+
+  it("should pass validation for passwords like 'Good4Password' that are the correct length and contain uppercase characters and digits", () => {
+    const passwordToCheck = "Good4Password";
+    const result = validatePassword(passwordToCheck);
+    expect(result.valid).toBeTruthy();
+    expect(result.errors.length).toEqual(0);
+  });
 });
