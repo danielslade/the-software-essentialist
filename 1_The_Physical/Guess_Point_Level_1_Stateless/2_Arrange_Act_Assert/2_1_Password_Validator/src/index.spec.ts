@@ -37,4 +37,11 @@ describe("password validator", () => {
     expect(result.errors).toContain("PasswordTooShort");
     expect(result.errors).not.toContain("DigitMissing");
   });
+
+  it("should return 'uppercase missing' for passwords like 'seven11' that are the correct length and contain a digit but missing an uppercase character", () => {
+    const passwordToCheck = "seven11";
+    const result = validatePassword(passwordToCheck);
+    expect(result.valid).toBeFalsy();
+    expect(result.errors).toContain("UppercaseMissing");
+  });
 });
