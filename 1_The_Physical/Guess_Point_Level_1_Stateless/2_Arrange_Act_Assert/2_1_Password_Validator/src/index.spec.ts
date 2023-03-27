@@ -44,4 +44,12 @@ describe("password validator", () => {
     expect(result.valid).toBeFalsy();
     expect(result.errors).toContain("UppercaseMissing");
   });
+
+  it("should return 'uppercase missing' and 'password too short' errors for passwords like 'sh0' that are less than 5 digits and contain a digit but are missing an uppercase character", () => {
+    const passwordToCheck = "sh0";
+    const result = validatePassword(passwordToCheck);
+    expect(result.valid).toBeFalsy();
+    expect(result.errors).toContain("UppercaseMissing");
+    expect(result.errors).toContain("PasswordTooShort");
+  });
 });
