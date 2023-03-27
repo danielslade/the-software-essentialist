@@ -7,4 +7,11 @@ describe("password validator", () => {
     expect(result.valid).toBeFalsy();
     expect(result.errors).toContain("PasswordTooShort");
   });
+
+  it("should pass", () => {
+    const passwordToCheck = "abcdefghijklmnop";
+    const result = validatePassword(passwordToCheck);
+    expect(result.valid).toBeFalsy();
+    expect(result.errors).toContain("PasswordTooLong");
+  });
 });
