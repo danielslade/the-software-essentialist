@@ -8,7 +8,7 @@ describe("password validator", () => {
     expect(result.errors).toContain("PasswordTooShort");
   });
 
-  it("should pass", () => {
+  it("should return a 'password too long' error for passwords like 'abcdefghijklmnop' that are longer than 15 characters", () => {
     const passwordToCheck = "abcdefghijklmnop";
     const result = validatePassword(passwordToCheck);
     expect(result.valid).toBeFalsy();
