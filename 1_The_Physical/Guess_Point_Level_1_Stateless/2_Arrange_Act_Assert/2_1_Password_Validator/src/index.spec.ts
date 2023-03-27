@@ -61,4 +61,14 @@ describe("password validator", () => {
     expect(result.errors).not.toContain("DigitMissing");
     expect(result.errors).not.toContain("UppercaseMissing");
   });
+
+  it("should return 3 errors when there is no uppercase letter or digit where the password is too long like 'sillysillypassword'", () => {
+    const passwordToCheck = "sillysillypassword";
+    const result = validatePassword(passwordToCheck);
+    expect(result.valid).toBeFalsy();
+    expect(result.errors.length).toEqual(3);
+    expect(result.errors).toContain("PasswordTooLong");
+    expect(result.errors).toContain("DigitMissing");
+    expect(result.errors).toContain("UppercaseMissing");
+  });
 });
