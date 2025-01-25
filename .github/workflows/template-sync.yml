@@ -20,8 +20,9 @@ jobs:
         uses: actions/checkout@v4
         # https://github.com/actions/checkout#usage
         # uncomment if you use submodules within the repository
-        # with:
-        #   submodules: true
+        with:
+          token: ${{ secrets.TEMPLATE_SYNC_PAT }}
+          #   submodules: true
 
       - name: actions-template-sync
         uses: AndreasAugustin/actions-template-sync@v2
@@ -29,3 +30,4 @@ jobs:
           source_repo_path: stemmlerjs/the-software-essentialist
           upstream_branch: main # defaults to main
           pr_labels: template_sync # defaults to template_sync
+          github_token: ${{ secrets.TEMPLATE_SYNC_PAT }}
