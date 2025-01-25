@@ -29,5 +29,5 @@ jobs:
         with:
           source_repo_path: stemmlerjs/the-software-essentialist
           upstream_branch: main # defaults to main
-          pr_labels: template_sync # defaults to template_sync
+          # pr_labels: template_sync # defaults to template_sync
           github_token: ${{ secrets.TEMPLATE_SYNC_PAT }}
